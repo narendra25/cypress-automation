@@ -2,6 +2,8 @@
 //-------------------------
 //There are two type of Assertions is There 
 
+
+
 //1.Implicit Assertions
 		//A. should
 		//B. and 
@@ -30,6 +32,22 @@ describe('Assertions',()=>{
         cy.get(".orangehrm-login-branding>img").should('be.visible')
         .and('exist')
         cy.xpath("//a").should('have.length','5') //No of Links
+        cy.get("input[name='username']").type('Admin')
+    cy.get("input[name='password']").type('admin123')
+    cy.get("button[class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']").click()
+
+    let expname="King kohli"
+    cy.get(".oxd-userdropdown-name").then((x)=>{
+        let actname=x.text()
+
+        //BDD Style Assertions
+        expect(actname).to.equal(expname)
+        expect(actname).to.not.equal('xyz')
+
+        //TDD Style Assertions
+        assert.equal(actname,expname)
+        assert.notEqual(actname,expname)
+    })
 
     })
 })
