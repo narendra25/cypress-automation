@@ -36,7 +36,7 @@ describe('Assertions',()=>{
     cy.get("input[name='password']").type('admin123')
     cy.get("button[class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']").click()
 
-    let expname="King kohli"
+    let expname="Paul Collings"
     cy.get(".oxd-userdropdown-name").then((x)=>{
         let actname=x.text()
 

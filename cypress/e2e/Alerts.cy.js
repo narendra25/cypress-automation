@@ -7,9 +7,10 @@ describe('Alerts',()=>{
         cy.scrollTo(0,300)
         cy.xpath("//span[text()='Alerts']").click()
         cy.window().then((win)=>{
-            cy.stub(win,'prompt').returns('welcome')
+            cy.stub(win,'prompt').returns('welcome to automation testing')
         })
         cy.xpath("(//button[@class='btn btn-primary'])[4]").click()
+        cy.get("#promptResult").should('contains','welcome to automation testing')
         //cy.on('window:confirm',(t)=>{
              //expect(t).to.contains('Please enter your name');
        // })
